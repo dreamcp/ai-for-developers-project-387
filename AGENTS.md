@@ -83,14 +83,15 @@ docker build -t calendar-app .
 docker run -p 3000:3000 calendar-app
 ```
 
-## Deploy (Render)
+## Deploy (Railway)
 
 1. Залить репозиторий на GitHub:
+   ```bash
+   git push
    ```
-   git remote add origin <your-repo-url>
-   git push -u origin main
-   ```
-2. В Render: **New Blueprint** → подключить репозиторий
-3. Render читает `render.yaml`, собирает Docker-образ и запускает веб-сервис с `PORT=3000`
+2. Зайти на https://railway.app → **Continue with GitHub**
+3. **New Project** → **Deploy from GitHub repo**
+4. Выбрать `dreamcp/ai-for-developers-project-386`
+5. Railway сам найдёт `Dockerfile`, соберёт образ и запустит веб-сервис
 
 Бэкенд сам раздаёт собранный фронтенд через `serveStatic`. Отдельный frontend-сервер не нужен.

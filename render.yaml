@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: calendar-app
-    env: docker
-    dockerfilePath: ./Dockerfile
-    envVars:
-      - key: PORT
-        value: 3000
