@@ -74,3 +74,23 @@ cd backend && npm run dev
 # Terminal 2 — frontend
 cd frontend && npm run dev
 ```
+
+## Docker build
+
+Multi-stage Dockerfile в корне:
+```
+docker build -t calendar-app .
+docker run -p 3000:3000 calendar-app
+```
+
+## Deploy (Render)
+
+1. Залить репозиторий на GitHub:
+   ```
+   git remote add origin <your-repo-url>
+   git push -u origin main
+   ```
+2. В Render: **New Blueprint** → подключить репозиторий
+3. Render читает `render.yaml`, собирает Docker-образ и запускает веб-сервис с `PORT=3000`
+
+Бэкенд сам раздаёт собранный фронтенд через `serveStatic`. Отдельный frontend-сервер не нужен.
