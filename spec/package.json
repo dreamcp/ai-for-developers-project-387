@@ -1,0 +1,16 @@
+{
+  "name": "calendar-spec",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "compile": "tsp compile .",
+    "mock": "prism mock tsp-output/@typespec/openapi3/openapi.yaml -p 3000"
+  },
+  "dependencies": {
+    "@typespec/compiler": "latest",
+    "@typespec/http": "latest",
+    "@typespec/openapi3": "latest",
+    "@typespec/rest": "latest",
+    "@stoplight/prism-cli": "latest"
+  }
+}
