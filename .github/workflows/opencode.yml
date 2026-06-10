@@ -35,4 +35,6 @@ jobs:
           OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USE_GITHUB_TOKEN: "true"
+          MODEL: anthropic/claude-sonnet-4-20250514
+          SHARE: "false"
         run: opencode github run
