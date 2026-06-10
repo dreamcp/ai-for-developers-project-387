@@ -16,6 +16,9 @@ jobs:
       pull-requests: write
       issues: write
       id-token: write
+    env:
+      OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -23,18 +26,12 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
-      - name: Install opencode CLI
+      - name: Install opencode CLI v1.15.10
         shell: bash
         run: |
-          curl -fsSL https://opencode.ai/install | bash
-          echo "$HOME/.opencode/bin" >> $GITHUB_PATH
+          npm install -g opencode-ai@1.15.10
+          opencode --version
 
       - name: Run opencode
         shell: bash
-        env:
-          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USE_GITHUB_TOKEN: "true"
-          MODEL: anthropic/claude-sonnet-4-20250514
-          SHARE: "false"
         run: opencode github run
