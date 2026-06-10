@@ -23,12 +23,16 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
-      - name: Run OpenCode
-        uses: anomalyco/opencode/github@v1.15.10
+      - name: Install opencode CLI
+        shell: bash
+        run: |
+          curl -fsSL https://opencode.ai/install | bash
+          echo "$HOME/.opencode/bin" >> $GITHUB_PATH
+
+      - name: Run opencode
+        shell: bash
         env:
           OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          model: anthropic/claude-sonnet-4-20250514
-          use_github_token: true
-          share: false
+          MODEL: anthropic/claude-sonnet-4-20250514
+        run: opencode github run
