@@ -16,9 +16,6 @@ jobs:
       pull-requests: write
       issues: write
       id-token: write
-    env:
-      OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -26,15 +23,9 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
-      - name: Install opencode CLI v1.15.10
-        shell: bash
-        run: |
-          npm install -g opencode-ai@1.15.10
-          opencode --version
-
-      - name: Run opencode
-        shell: bash
+      - name: Run OpenCode
+        uses: anomalyco/opencode/github@latest
         env:
-          MODEL: opencode/deepseek-v4-flash-free
-          SHARE: "false"
-        run: opencode github run
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        with:
+          model: openai/gpt-5.4
