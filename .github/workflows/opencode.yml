@@ -34,4 +34,7 @@ jobs:
 
       - name: Run opencode
         shell: bash
+        env:
+          MODEL: opencode/deepseek-v4-flash-free
+          SHARE: "false"
         run: opencode github run
