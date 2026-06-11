@@ -83,16 +83,16 @@ export function BookingPage() {
   const availableSlots = slots.filter((s) => s.isAvailable)
 
   return (
-    <div className="max-w-3xl mx-auto py-12 px-4">
-      <Button variant="ghost" className="mb-4" onClick={() => navigate('/')}>
+    <div className="max-w-3xl mx-auto py-16 px-4">
+      <Button variant="ghost" className="mb-6" onClick={() => navigate('/')}>
         &larr; Back
       </Button>
 
       {eventType && (
-        <h1 className="text-2xl font-bold mb-2">{eventType.name}</h1>
+        <h1 className="text-3xl font-serif tracking-[0.1em] mb-2">{eventType.name}</h1>
       )}
 
-      <div className="grid md:grid-cols-[auto_1fr] gap-8 mt-6">
+      <div className="grid md:grid-cols-[auto_1fr] gap-8 mt-8">
         <div>
           <DayPicker
             mode="single"

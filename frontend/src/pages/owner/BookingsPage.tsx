@@ -17,8 +17,8 @@ export function BookingsPage() {
   }, [])
 
   return (
-    <div className="max-w-5xl mx-auto py-12 px-4">
-      <h1 className="text-3xl font-bold mb-6">Upcoming Bookings</h1>
+    <div className="max-w-5xl mx-auto py-16 px-4">
+      <h1 className="text-3xl font-serif tracking-[0.1em] uppercase mb-8">Upcoming Bookings</h1>
 
       {loading ? (
         <p className="text-muted-foreground">Loading...</p>

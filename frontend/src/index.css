@@ -1,28 +1,44 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: hsl(0 0% 100%);
-  --color-foreground: hsl(222.2 84% 4.9%);
-  --color-card: hsl(0 0% 100%);
-  --color-card-foreground: hsl(222.2 84% 4.9%);
-  --color-primary: hsl(221.2 83.2% 53.3%);
-  --color-primary-foreground: hsl(210 40% 98%);
-  --color-secondary: hsl(210 40% 96.1%);
-  --color-secondary-foreground: hsl(222.2 47.4% 11.2%);
-  --color-muted: hsl(210 40% 96.1%);
-  --color-muted-foreground: hsl(215.4 16.3% 46.9%);
-  --color-accent: hsl(210 40% 96.1%);
-  --color-accent-foreground: hsl(222.2 47.4% 11.2%);
-  --color-destructive: hsl(0 84.2% 60.2%);
-  --color-destructive-foreground: hsl(210 40% 98%);
-  --color-border: hsl(214.3 31.8% 91.4%);
-  --color-input: hsl(214.3 31.8% 91.4%);
-  --color-ring: hsl(221.2 83.2% 53.3%);
-  --radius: 0.5rem;
+  --color-background: #fdf2f8;
+  --color-foreground: #1a1a2e;
+  --color-card: #ffffff;
+  --color-card-foreground: #1a1a2e;
+  --color-primary: #1a1a2e;
+  --color-primary-foreground: #fdf2f8;
+  --color-secondary: #fdf2f8;
+  --color-secondary-foreground: #1a1a2e;
+  --color-muted: #fce7f3;
+  --color-muted-foreground: #6b7280;
+  --color-accent: #e8a87c;
+  --color-accent-foreground: #1a1a2e;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #fdf2f8;
+  --color-border: #e5e7eb;
+  --color-input: #e5e7eb;
+  --color-ring: #e8a87c;
+  --radius: 0.375rem;
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   background: var(--color-background);
   color: var(--color-foreground);
+  letter-spacing: 0.025em;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out forwards;
 }
