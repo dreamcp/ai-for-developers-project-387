@@ -1,28 +1,45 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: hsl(0 0% 100%);
-  --color-foreground: hsl(222.2 84% 4.9%);
+  --color-background: hsl(340 60% 97%);
+  --color-foreground: hsl(240 30% 14%);
   --color-card: hsl(0 0% 100%);
-  --color-card-foreground: hsl(222.2 84% 4.9%);
-  --color-primary: hsl(221.2 83.2% 53.3%);
-  --color-primary-foreground: hsl(210 40% 98%);
-  --color-secondary: hsl(210 40% 96.1%);
-  --color-secondary-foreground: hsl(222.2 47.4% 11.2%);
-  --color-muted: hsl(210 40% 96.1%);
-  --color-muted-foreground: hsl(215.4 16.3% 46.9%);
-  --color-accent: hsl(210 40% 96.1%);
-  --color-accent-foreground: hsl(222.2 47.4% 11.2%);
-  --color-destructive: hsl(0 84.2% 60.2%);
-  --color-destructive-foreground: hsl(210 40% 98%);
-  --color-border: hsl(214.3 31.8% 91.4%);
-  --color-input: hsl(214.3 31.8% 91.4%);
-  --color-ring: hsl(221.2 83.2% 53.3%);
-  --radius: 0.5rem;
+  --color-card-foreground: hsl(240 30% 14%);
+  --color-primary: hsl(28 50% 66%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-secondary: hsl(340 60% 95%);
+  --color-secondary-foreground: hsl(240 30% 14%);
+  --color-muted: hsl(340 40% 94%);
+  --color-muted-foreground: hsl(240 10% 50%);
+  --color-accent: hsl(28 50% 66%);
+  --color-accent-foreground: hsl(0 0% 100%);
+  --color-destructive: hsl(0 72% 51%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  --color-border: hsl(340 30% 88%);
+  --color-input: hsl(340 30% 88%);
+  --color-ring: hsl(28 50% 66%);
+  --radius: 0.75rem;
+  --tracking-wide: 0.05em;
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: "Inter", "system-ui", -apple-system, sans-serif;
   background: var(--color-background);
   color: var(--color-foreground);
+  letter-spacing: var(--tracking-wide);
+}
+
+::selection {
+  background: hsl(28 50% 66% / 0.3);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

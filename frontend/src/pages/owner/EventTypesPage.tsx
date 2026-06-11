@@ -57,8 +57,8 @@ export function EventTypesPage() {
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-4">
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-3xl font-bold">Event Types</h1>
+      <div className="flex items-center justify-between mb-8">
+        <h1 className="text-2xl font-[350] tracking-[0.1em] uppercase">Event Types</h1>
         <Button onClick={openCreate}>+ New Event Type</Button>
       </div>
 
