@@ -10,10 +10,10 @@ function Header() {
   const isOwner = pathname.startsWith('/owner')
 
   return (
-    <header className="border-b border-border bg-background">
-      <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
-        <Link to="/" className="font-bold text-lg">
-          CalendarApp
+    <header className="border-b border-border/60 bg-white/80 backdrop-blur-sm sticky top-0 z-40">
+      <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+        <Link to="/" className="text-xl font-[350] tracking-[0.15em] text-foreground">
+          LUMIÈRE
         </Link>
         <nav className="flex gap-2 items-center">
           {isOwner ? (

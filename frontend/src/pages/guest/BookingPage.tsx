@@ -83,17 +83,17 @@ export function BookingPage() {
   const availableSlots = slots.filter((s) => s.isAvailable)
 
   return (
-    <div className="max-w-3xl mx-auto py-12 px-4">
-      <Button variant="ghost" className="mb-4" onClick={() => navigate('/')}>
+    <div className="max-w-3xl mx-auto py-16 px-4">
+      <Button variant="ghost" className="mb-6 -ml-2 text-muted-foreground" onClick={() => navigate('/')}>
         &larr; Back
       </Button>
 
       {eventType && (
-        <h1 className="text-2xl font-bold mb-2">{eventType.name}</h1>
+        <h1 className="text-2xl font-[350] tracking-[0.1em] mb-2">{eventType.name}</h1>
       )}
 
-      <div className="grid md:grid-cols-[auto_1fr] gap-8 mt-6">
-        <div>
+      <div className="grid md:grid-cols-[auto_1fr] gap-10 mt-8">
+        <div className="[&_.rdp]:!m-0 [&_.rdp-month]:!m-0 [&_.rdp-table]:!w-full [&_.rdp-day_button]:!rounded-full [&_.rdp-day_button]:!transition-colors [&_.rdp-day_button:hover]:!bg-primary/10 [&_.rdp-day_button[aria-selected=true]]:!bg-primary [&_.rdp-day_button[aria-selected=true]]:!text-primary-foreground [&_.rdp-day_button[aria-selected=true]]:!shadow-md [&_.rdp-caption_label]:!tracking-[0.05em] [&_.rdp-head_cell]:!text-muted-foreground [&_.rdp-head_cell]:!text-xs [&_.rdp-head_cell]:!tracking-[0.1em] [&_.rdp-head_cell]:!uppercase [&_.rdp-nav_button]:!text-primary [&_.rdp-nav_button:hover]:!bg-primary/10">
           <DayPicker
             mode="single"
             selected={selectedDate}
@@ -103,8 +103,8 @@ export function BookingPage() {
         </div>
 
         <div>
-          <h2 className="font-semibold mb-3">
-            Slots for {format(selectedDate, 'MMM d, yyyy')}
+          <h2 className="text-sm tracking-[0.1em] uppercase text-muted-foreground mb-4">
+            {format(selectedDate, 'MMM d, yyyy')}
           </h2>
 
           {loading ? (
@@ -112,11 +112,12 @@ export function BookingPage() {
           ) : availableSlots.length === 0 ? (
             <p className="text-muted-foreground">No free slots on this day.</p>
           ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {availableSlots.map((s) => (
                 <Button
                   key={s.startTime}
                   variant="outline"
+                  className="tracking-[0.05em]"
                   onClick={() => openBookingForm(s)}
                 >
                   {format(new Date(s.startTime), 'HH:mm')}
@@ -130,15 +131,15 @@ export function BookingPage() {
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Complete your booking</DialogTitle>
+            <DialogTitle className="tracking-[0.05em]">Complete your booking</DialogTitle>
             <DialogDescription>
               {selectedSlot && (
-                <>Slot: {format(new Date(selectedSlot.startTime), 'MMM d, yyyy HH:mm')}</>
+                <>{format(new Date(selectedSlot.startTime), 'MMM d, yyyy HH:mm')}</>
               )}
             </DialogDescription>
           </DialogHeader>
 
-          <div className="space-y-4">
+          <div className="space-y-5">
             <div className="space-y-2">
               <Label htmlFor="name">Your name</Label>
               <Input
@@ -164,7 +165,7 @@ export function BookingPage() {
             )}
 
             <Button
-              className="w-full"
+              className="w-full tracking-[0.05em]"
               disabled={!guestName || !guestEmail || submitting}
               onClick={handleSubmit}
             >
@@ -175,12 +176,12 @@ export function BookingPage() {
       </Dialog>
 
       {message && !dialogOpen && (
-        <Card className="mt-6">
+        <Card className="mt-8">
           <CardHeader>
             <CardTitle>{message}</CardTitle>
           </CardHeader>
           <CardContent>
-            <Button onClick={() => navigate('/')}>Back to events</Button>
+            <Button onClick={() => navigate('/')}>Back to services</Button>
           </CardContent>
         </Card>
       )}
